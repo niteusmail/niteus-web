@@ -3,32 +3,32 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-    <section class="hero jumbotron">
-        <div class="container">
-            <h1 class="display-4">Welcome to My Website</h1>
-            <p class="lead">Discover the latest articles and insights.</p>
-            <a href="#" class="btn btn-primary btn-lg">Read More</a>
-        </div>
-    </section>
-    <section class="articles">
-        <div class="container">
-            <h2>Latest Articles</h2>
-            <div class="row">
-                {% for article in articles %}
-                    <div class="col-md-4 mb-4">
-                        <div class="card">
-                            {% if article.image %}
-                                <img src="{{ article.image.url }}" class="card-img-top" alt="{{ article.title }}">
-                            {% endif %}
-                            <div class="card-body">
-                                <h5 class="card-title">{{ article.title }}</h5>
-                                <p class="card-text">{{ article.text|truncatewords:30 }}</p>
-                                <a href="#" class="btn btn-primary">Read More</a>
-                            </div>
+<section class="hero jumbotron">
+    <div class="container">
+        <h1 class="display-4">Welcome to My Website</h1>
+        <p class="lead">Discover the latest articles and insights.</p>
+        <a href="#" class="btn btn-primary btn-lg">Read More</a>
+    </div>
+</section>
+<section class="articles">
+    <div class="container">
+        <h2>Latest Articles</h2>
+        <div class="row">
+            {% for article in articles %}
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        {% if article.image %}
+                            <img src="{{ article.image.url }}" class="card-img-top" alt="{{ article.title }}">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ article.title }}</h5>
+                            <p class="card-text">{{ article.text|truncatewords:30 }}</p>
+                            <a href="{% url 'article_detail' article.id %}" class="btn btn-primary">Read More</a>
                         </div>
                     </div>
-                {% endfor %}
-            </div>
+                </div>
+            {% endfor %}
         </div>
-    </section>
+    </div>
+</section>
 {% endblock %}
