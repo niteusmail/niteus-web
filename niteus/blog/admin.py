@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import Article
 from .models import Menu, MenuItem
+from .models import Article, Menu, MenuItem, BasePage
 
 class MenuItemInline(admin.TabularInline):
     model = MenuItem
@@ -12,3 +13,4 @@ class MenuAdmin(admin.ModelAdmin):
 admin.site.register(Menu, MenuAdmin)
 admin.site.register(MenuItem)
 admin.site.register(Article)
+admin.site.register(BasePage)

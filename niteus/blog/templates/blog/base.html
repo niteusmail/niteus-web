@@ -10,7 +10,7 @@
 </head>
 <body>
     <header class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">My Website</a>
+        <a class="navbar-brand" href="{% url 'home' %}">My Website</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -23,7 +23,11 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             {% for item in menu.items.all %}
-                                <a class="dropdown-item" href="{{ item.url }}">{{ item.name }}</a>
+                                {% if item.page %}
+                                    <a class="dropdown-item" href="{% url 'base_page_detail' item.page.slug %}">{{ item.name }}</a>
+                                {% else %}
+                                    <a class="dropdown-item" href="{{ item.url }}">{{ item.name }}</a>
+                                {% endif %}
                             {% endfor %}
                         </div>
                     </li>

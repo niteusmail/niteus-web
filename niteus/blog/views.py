@@ -4,10 +4,7 @@ from .models import Menu
 from .models import Article
 from .models import Article, Menu
 from django.shortcuts import render, get_object_or_404
-
-def menu_view(request):
-    menus = Menu.objects.all()
-    return render(request, 'menu.html', {'menus': menus})
+from .models import Article, Menu, BasePage
 
 def home(request):
     articles = Article.objects.all()
@@ -17,3 +14,7 @@ def home(request):
 def article_detail(request, article_id):
     article = get_object_or_404(Article, id=article_id)
     return render(request, 'blog/article_detail.html', {'article': article})
+
+def base_page_detail(request, slug):
+    page = get_object_or_404(BasePage, slug=slug)
+    return render(request, 'blog/base_page_detail.html', {'page': page})
