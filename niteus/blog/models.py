@@ -1,4 +1,5 @@
 from django.db import models
+from django_ckeditor_5.fields import CKEditor5Field
 
 class Menu(models.Model):
     name = models.CharField(max_length=100)
@@ -17,7 +18,7 @@ class MenuItem(models.Model):
 
 class Article(models.Model):
     title = models.CharField(max_length=200)
-    text = models.TextField()
+    text = CKEditor5Field('Text', config_name='default')  # Использование CKEditor для текстового поля
     image = models.ImageField(upload_to='images/', blank=True, null=True)
 
     def __str__(self):
@@ -26,7 +27,7 @@ class Article(models.Model):
 class BasePage(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True)
-    content = models.TextField()
+    content = CKEditor5Field('Content', config_name='default')  # Использование CKEditor для текстового поля
 
     def __str__(self):
         return self.title

@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.header .logo {
+    font-size: 1.5em;
+}
+
+.hero {
+    background-image: url('/static/images/hero.jpg');
+    background-size: cover;
+    color: #ffffff;
+    padding: 5em 0;
+    text-align: center;
+}
+
+.hero .btn {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.articles {
+    padding: 2em 0;
+}
+
+.articles ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.articles li {
+    background-color: #ffffff;
+    margin-bottom: 1em;
+    padding: 1em;
+    border-radius: 5px;
+}
+
+.footer {
+    background-color: #f8f9fa;
+    padding: 1em 0;
+    text-align: center;
+}

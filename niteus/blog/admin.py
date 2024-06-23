@@ -3,6 +3,7 @@ from .models import Article
 from .models import Menu, MenuItem
 from .models import Article, Menu, MenuItem, BasePage
 
+
 class MenuItemInline(admin.TabularInline):
     model = MenuItem
     extra = 1

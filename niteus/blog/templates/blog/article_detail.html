@@ -4,11 +4,11 @@
 
 {% block content %}
 <div class="container mt-5">
-    <h1>{{ article.title }}</h1>
+    <h1>{{ article.title|safe  }}</h1>
     {% if article.image %}
         <img src="{{ article.image.url }}" class="img-fluid" alt="{{ article.title }}">
     {% endif %}
-    <p>{{ article.text }}</p>
+    <p>{{ article.text|safe }}</p>
     <a href="{% url 'home' %}" class="btn btn-secondary">Back to Home</a>
 </div>
 {% endblock %}
