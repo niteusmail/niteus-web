@@ -1,8 +1,3 @@
-
-from django.shortcuts import render
-from .models import Menu
-from .models import Article
-from .models import Article, Menu
 from django.shortcuts import render, get_object_or_404
 from .models import Article, Menu, BasePage
 
@@ -18,3 +13,6 @@ def article_detail(request, article_id):
 def base_page_detail(request, slug):
     page = get_object_or_404(BasePage, slug=slug)
     return render(request, 'blog/base_page_detail.html', {'page': page})
+
+def custom_page_not_found(request, exception=None):
+    return render(request, '404.html', status=404)

@@ -1,13 +1,11 @@
-
 from django.contrib import admin
 from django.urls import path
-from blog.views import home
 from django.conf import settings
 from django.conf.urls.static import static
-from blog.views import home, article_detail
-from blog.views import home, article_detail, base_page_detail
+from django.conf.urls import handler404
+from blog.views import home, article_detail, base_page_detail, custom_page_not_found
 
-
+handler404 = 'blog.views.custom_page_not_found'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
